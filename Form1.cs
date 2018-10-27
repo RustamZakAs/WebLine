@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
         List<TwoPoint> listTwoPoints = new List<TwoPoint>();
         Point pointMause;
         Random randomX = new Random();
-        Random randomY = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -24,11 +23,16 @@ namespace WindowsFormsApp1
             pointMause = new Point(e.X, e.Y);
 
             listTwoPoints.Clear();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 25; i++)
             {
                 listTwoPoints.Add(new TwoPoint(new Point(randomX.Next(1, pictureBox1.Width),
-                    randomY.Next(1, pictureBox1.Height)), pointMause, Color.Black));
+                    randomX.Next(1, pictureBox1.Height)), pointMause, Color.Black));
             }
+
+            //listTwoPoints.Add(new TwoPoint(new Point(5,5), pointMause, Color.Black));
+            //listTwoPoints.Add(new TwoPoint(new Point(5, pictureBox1.Height - 5), pointMause, Color.Black));
+            //listTwoPoints.Add(new TwoPoint(new Point(pictureBox1.Width - 5,5), pointMause, Color.Black));
+            //listTwoPoints.Add(new TwoPoint(new Point(pictureBox1.Width - 5, pictureBox1.Height - 5), pointMause, Color.Black));
 
             pictureBox1.Invalidate();
         }
@@ -45,13 +49,11 @@ namespace WindowsFormsApp1
             //    new Point { X = point4.X, Y = point4.Y }
             //    };
 
-
             //Ctrl - A
 
             //Ctrl + KF
 
             //F12
-
 
             foreach (var item in listTwoPoints)
             {
